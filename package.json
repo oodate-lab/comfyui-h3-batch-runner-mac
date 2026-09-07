@@ -1,0 +1,10 @@
+{
+  "name": "comfyui-h3-dual-mode-director",
+  "version": "6.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  }
+}

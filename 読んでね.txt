@@ -1,0 +1,62 @@
+ChatGPTと一緒に作ってください、人間が編集することを想定していません。
+基本、ノーサポートでお願いします。
+ライセンスはよくわからないので、公序良俗の範囲内でご利用ください。
+
+----お知らせ・変更点など----
+0:55 2026/09/07　追加。
+アニメ生成ツールとMV作成ツールを統合しました
+Codex CLI経由で作成します、事前にCodex CLIをインストールしてください。
+インストール方法は、下を見てWindows PowerShellから入れるか、
+https://learn.chatgpt.com/docs/codex/cli
+Codexに頼んで入れてもらってください。
+----ここまで----
+
+必要なもの
+Comfy Desktop
+Minimax H3の重み
+minimax_h3_turbo_v4_step600_ema.safetensors
+参照画像と字幕ファイル(SRT形式)を事前に準備してください。
+
+mp3ファイルから自動的に字幕ファイルを作るサイト。
+https://caption-x.com/suno-lyrics-captions
+
+Lyrics to SRT Converter V2、オススメです。
+https://soncho.nomaki.jp/chat/song_srt.html
+
+ChatGPTのWorkモードで作業します。
+モデル指定するときは、下記を参考に指定してください。
+表示名		指定するモデル名	特徴
+Astra		gpt-6-astra		最も高性能。複雑な開発・調査・長時間作業向け
+5.6 Sol		gpt-5.6-sol		GPT-5.6系の高性能モデル
+5.6 Terra	gpt-5.6-terra		性能とコストのバランス型
+5.6 Luna	gpt-5.6-luna		高速・低コスト型（ふぐのオススメはコレ！）
+5.5		gpt-5.5			旧世代の高性能モデル
+5.4		gpt-5.4			コーディング、推論、ツール利用に強い
+5.4 Mini	gpt-5.4-mini		高速・軽量。調査やサブエージェント向け
+
+キャラクターの参照画像は、３面図を想定しています。
+ChatGPTに歌詞を参照させて、適当に作ってください
+背景もあるとさらにいいです。
+
+\comfyui-h3-batch-runner\start_windows.bat
+を起動します、足りないファイルがあれば自動で環境構築するはずです。
+そしたら、自分のComfyUIにvideo_minimax_h3_r2v.jsonをD&Dで取り込んでください。
+それから、取り込んだワークフローの上で右クリック。
+エクスポート（API）でワークフローを保存します。
+
+ComfyUI H3 Batch Runnerのhtml内で環境構築します。
+ComfyUI inputフォルダーはデフォルトなら下記のとおり。
+C:\Users\(ユーザー名)\AppData\Local\Comfy-Desktop\ComfyUI-Shared\input
+エクスポート（API）でワークフローを保存した
+workflow_api.jsonをアップロード
+ChatGPTで生成したH3プロジェクトMarkdownをアップロード
+
+参照用音源フォルダをアップロード
+参照画像を順番に選択ぶち込む
+AIプロンプト生成で、自動でプロンプトを作成します。
+あとは連続生成ボタンを押すだけです。
+
+
+作者:BalloonFishとChatGPT 5.6Sol
+https://x.com/oodate
+https://chatgpt.com/
